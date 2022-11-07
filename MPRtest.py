@@ -1,7 +1,7 @@
 
 import Ui_MPRtest
 import pyqtgraph as pg
-import sys,time
+import sys,time,os
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -33,7 +33,8 @@ class mywindow(QtWidgets.QMainWindow,QComboBox,Ui_MPRtest.Ui_MainWindow):
         self.splitter_3.setSizes([100, 0])
         self.test1.clicked.connect(self.roi)
 
-        f,self.images_raw = img_file.read_images(r"./Database/")
+        path=os.getcwd()+"\\Database"
+        f,self.images_raw = img_file.read_images(path)
 
         self.test2.clicked.connect(self.test2_def)
         self.imgshow()
